@@ -1,24 +1,6 @@
-# README
+# TODO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Add details about the project in README.md
+* Add steps for anyone to clone and setup the project with their credentials.
+* Deploy to Heroku.
+* Replace Paytm files by moving them to a gem.
