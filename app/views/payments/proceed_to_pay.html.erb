@@ -1,0 +1,16 @@
+<div>
+  <center style="margin-top: 150px">
+    <h2>Redirecting to <img alt="Paytm Logo" src="https://s3.amazonaws.com/ptetestindia/default/paytm_logo.png" style="height: 38px; margin-top: -6px;" /></h2>
+    <h4>Please do not refresh this page...</h4>
+  </center>
+
+  <form method="post" action="<%= @payment_url %>" name="f1">
+    <% keys = @param_list.keys %>
+    <% keys.each do |k| %>
+      <input type="hidden" name="<%= k %>" value="<%= @param_list[k] %>">
+    <% end %>
+    <input type="hidden" name="CHECKSUMHASH" value="<%= @checksum_hash %>">
+  </form>
+
+  <script type="text/javascript">document.f1.submit();</script>
+</div>
