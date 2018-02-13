@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   post "/order-processed" => "payments#order_processed", as: :order_processed
 
   # Mobile
-  post "/generate-checksum" => "payments#generate_checksum"
-  post "/verify-checksum" => "payments#verify_checksum"
-
+  namespace :api do
+    namespace :mobile do
+      post "generate-checksum" => "paytm#generate_checksum"
+      post "verify-checksum" => "paytm#verify_checksum"
+    end
+  end
 end
