@@ -8,11 +8,11 @@ class Api::Mobile::PaytmController < ActionController::Base
   # MOBILE
   # post generate-checksum
   def generate_checksum
-    payment_environment = :production #(params[:payment_environment] == "production" ? :production : :staging)
+    payment_environment = (params[:payment_environment] == "production" ? :production : :staging)
 
     params_keys_to_accept = ["MID", "ORDER_ID", "CUST_ID", "INDUSTRY_TYPE_ID", "CHANNEL_ID", "TXN_AMOUNT",
       "WEBSITE", "CALLBACK_URL", "MOBILE_NO", "EMAIL", "THEME"]
-    params_keys_to_ignore = ["USER_ID", "controller", "action", "format"]
+    params_keys_to_ignore = ["USER_ID", "controller", "action", "format", "payment_environment"]
 
     paytmHASH = Hash.new
 
@@ -55,7 +55,7 @@ class Api::Mobile::PaytmController < ActionController::Base
 
   # post verify-checksum
   def verify_checksum
-    payment_environment = :production #(params[:payment_environment] == "production" ? :production : :staging)
+    payment_environment = (params[:payment_environment] == "production" ? :production : :staging)
     params_keys_to_ignore = ["USER_ID", "controller", "action", "format"]
 
     paytmHASH = Hash.new

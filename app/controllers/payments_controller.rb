@@ -49,7 +49,7 @@ class PaymentsController < ApplicationController
   # MOBILE
   # post generate-checksum
   def generate_checksum
-    payment_environment = :production #(params[:payment_environment] == "production" ? :production : :staging)
+    payment_environment = (params[:payment_environment] == "production" ? :production : :staging)
 
     params_keys_to_accept = ["MID", "ORDER_ID", "CUST_ID", "INDUSTRY_TYPE_ID", "CHANNEL_ID", "TXN_AMOUNT",
       "WEBSITE", "CALLBACK_URL", "MOBILE_NO", "EMAIL", "THEME"]
@@ -96,7 +96,7 @@ class PaymentsController < ApplicationController
 
   # post verify-checksum
   def verify_checksum
-    payment_environment = :production #(params[:payment_environment] == "production" ? :production : :staging)
+    payment_environment = (params[:payment_environment] == "production" ? :production : :staging)
     params_keys_to_ignore = ["USER_ID", "controller", "action", "format"]
 
     paytmHASH = Hash.new
